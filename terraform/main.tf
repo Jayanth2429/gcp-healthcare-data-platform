@@ -53,9 +53,9 @@ resource "google_pubsub_topic" "snapshot_ready" {
 }
 
 resource "google_bigquery_dataset" "platform" {
-  depends_on = [google_project_service.required]
-  dataset_id = "cms_platform"
-  location   = "US"
+  depends_on  = [google_project_service.required]
+  dataset_id  = "cms_platform"
+  location    = "US"
   description = "CMS public hospital data platform"
 }
 
