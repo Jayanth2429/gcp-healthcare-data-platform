@@ -1,0 +1,7 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "services/loader/Dockerfile", "-t", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/cms-loader:$SHORT_SHA", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/cms-loader:$SHORT_SHA"]
+images:
+  - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/cms-loader:$SHORT_SHA"
